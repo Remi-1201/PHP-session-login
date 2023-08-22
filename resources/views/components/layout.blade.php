@@ -22,8 +22,8 @@
 <h1>{{ $title ?? 'Session login' }}</h1>
 {{ $slot }}
 
-@if (auth()->check())
-    Logout {{ auth()->user()->name }}
+@if (auth()->check())    
+    <a href="{{ route('logout') }}">Logout</a>
 @else
     <a href="{{ route('users.create') }}">Signup</a>
     <a href="{{ route('sessions.create') }}">Login</a>

@@ -7,3 +7,4 @@ Route::resource('users', UserController::class)
     ->only(['create', 'store', 'show']);
 Route::resource('sessions', SessionsController::class)
     ->only(['create', 'store']);
+Route::get('/logout', [SessionsController::class, 'logout'])->name('logout');

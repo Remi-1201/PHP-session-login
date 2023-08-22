@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Http\Requests\StoreUserRequest;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 
@@ -16,6 +17,7 @@ class UserController extends Controller
     public function store(StoreUserRequest $request)
     {
         $user = User::create($request->all());
+        Auth::login($user); 
         return redirect()->route('users.show', $user);
     }
 
