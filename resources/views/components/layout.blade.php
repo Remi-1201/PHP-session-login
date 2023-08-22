@@ -5,6 +5,11 @@
     <title>Document</title>
 </head>
 <body>
+@if (session('success'))
+    <div>
+        {{ session('success') }}
+    </div>
+@endif
 @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
