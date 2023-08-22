@@ -21,5 +21,12 @@
 @endif
 <h1>{{ $title ?? 'Session login' }}</h1>
 {{ $slot }}
+
+@if (auth()->check())
+    Logout {{ auth()->user()->name }}
+@else
+    <a href="{{ route('users.create') }}">Signup</a>
+    <a href="{{ route('sessions.create') }}">Login</a>
+@endif
 </body>
 </html>
