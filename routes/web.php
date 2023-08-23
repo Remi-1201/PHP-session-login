@@ -8,7 +8,8 @@ Route::resource('users', UserController::class)
     ->middleware('guest');
 Route::get('/users/{user}', [UserController::class, 'show'])
     ->name('users.show')
-    ->middleware('auth');
+    ->middleware('auth')
+    ->middleware('current.user');
 Route::resource('sessions', SessionsController::class)
     ->only(['create', 'store'])
     ->middleware('guest');
